@@ -23,6 +23,7 @@
                 <version>3.0.0</version> <!-- or any stable version -->
                 <configuration>
                     <suiteXmlFiles>
+                        <suiteXmlFile>testng_sanity.xml</suiteXmlFile>
                         <suiteXmlFile>testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
