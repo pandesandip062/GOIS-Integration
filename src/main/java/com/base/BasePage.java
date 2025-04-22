@@ -1,6 +1,7 @@
 package com.base;
 
 import com.iframe.IframeActions;
+import com.javascript.JavaScriptActions;
 import com.report.ExtentFactory;
 import com.waits.ExplicitWaitActions;
 import org.openqa.selenium.WebElement;
@@ -9,6 +10,7 @@ public class BasePage {
 
 
     protected IframeActions iframeActions;
+    protected JavaScriptActions javaScriptActions;
 
     protected ExplicitWaitActions explicitWaitActions;
 

@@ -10,12 +10,15 @@ package com.Pages;
 
 import com.base.BasePage;
 import com.driver.DriverFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage extends BasePage {
 
+    private Logger logger = LogManager.getLogger(LoginPage.class);
     @FindBy(id = "cphPage_txtLoginID")
     private WebElement useNameTextBox;
 
@@ -35,8 +38,11 @@ public class LoginPage extends BasePage {
 
     public void loginApplication(String userNamevalue,String passwordValue){
         super.sendKeys(useNameTextBox,"user name text box",userNamevalue);
+        logger.info("username entered");
         super.sendKeys(passwordTextBox,"Password text box",passwordValue);
+        logger.info("password entered");
         super.click(loginBtn,"login button");
+        logger.info("clicked on login button");
         //super.click(CancelCTA,"ready to use GOIS");
     }
 

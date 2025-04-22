@@ -3,6 +3,8 @@ package com.report;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
@@ -12,6 +14,7 @@ public class ExtentReportListener implements ITestListener {
 
     private ExtentReports extentReports;
     private ExtentTest extentTest;
+    private static Logger logger = LogManager.getLogger(ExtentReportListener.class);
 
     @Override
     public void onStart(org.testng.ITestContext context) {
@@ -21,7 +24,8 @@ public class ExtentReportListener implements ITestListener {
     @Override
     public void onTestStart(ITestResult result) {
         this.extentTest = extentReports.createTest(result.getName());
-        getInstance().setExtent(extentTest);// Initialize ExtentTest for the current test
+        getInstance().setExtent(extentTest);
+        logger.info("Test is added to pool: " + result.getName());// Initialize ExtentTest for the current test
         //getInstance().setExtent(extentTest); // Set it in the factory
     }
 

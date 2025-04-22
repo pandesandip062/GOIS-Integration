@@ -34,7 +34,7 @@ public class addProduct extends BaseTest {
         productsScreen addPro = new productsScreen();
         addPro.addProduct(productName);
 
-        System.out.println("addig pr");
+
 
 
     }

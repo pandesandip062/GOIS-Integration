@@ -10,6 +10,8 @@ package com.Pages;
 
 import com.base.BasePage;
 import com.driver.DriverFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -25,6 +27,7 @@ import java.time.Duration;
 
 public class ProductPage extends BasePage {
 
+    private Logger logger = LogManager.getLogger(ProductPage.class);
 
     @FindBy(xpath = "//span[text()='Products']")
     WebElement product;
@@ -78,29 +81,36 @@ public class ProductPage extends BasePage {
         Actions select = new Actions(DriverFactory.getInstance().getDriver());
         select.click(product).perform();
         select.click(addProduct).perform();
+        logger.info("clicked on add product tab");
         orgnizationSelect.click();
-        JavascriptExecutor js = (JavascriptExecutor) DriverFactory.getInstance().getDriver();
-        js.executeScript("arguments[0].scrollIntoView(true);", sandipOrg);
-
-
+        logger.info("selecting organization");
+        super.javaScriptActions.scrollPageToViewElement(sandipOrg);
+       /* JavascriptExecutor js = (JavascriptExecutor) DriverFactory.getInstance().getDriver();
+        js.executeScript("arguments[0].scrollIntoView(true);", sandipOrg);*/
         sandipOrg.click();
+        logger.info("selected organization");
         this.click(selectButton,"clicked on selectButton");
         super.sendKeys(productNameValue,"product name",productName);
+        logger.info("product name entered");
         super.sendKeys(productNo,"product Number ",productName+"123");
+        logger.info("product number entered");
         super.sendKeys(unitCost,"unit cost","1");
+        logger.info("unit cost entered");
         super.sendKeys(lastDirectCost,"last direct cost","1");
+        logger.info("last direct cost entered");
         super.sendKeys(unitPrice,"unit price","1");
+        logger.info("unit price entered");
         super.click(settingTab,"setting button");
-
+        logger.info("setting tab clicked");
         Select select1 = new Select(productPostingGroup);
         select1.selectByVisibleText("GQB-SYNC ITEM");
-
+        logger.info("GQB-sync item selected");
 
         Select select2 = new Select(inventoryPostingGroup);
         select2.selectByVisibleText("Inventory Posting Global");
-
+        logger.info("inventory posting global selected");
         super.click(saveButton,"save button");
-
+        logger.info("product saved");
         Thread.sleep(2000);
         super.click(productLinks,"product link");
         Thread.sleep(2000);
@@ -108,6 +118,7 @@ public class ProductPage extends BasePage {
         System.out.println(productName);
 
         Assert.assertEquals(productNamevalues,productName);
+        logger.info("verified that product save successfully");
 
 
 
