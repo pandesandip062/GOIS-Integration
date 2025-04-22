@@ -1,15 +1,15 @@
 <?xml version ="1.0"  encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="Test Suite" parallel="tests" thread-count="5">
+<suite name="Test Suite" >
     <listeners>
         <listener class-name="com.report.ExtentReportListener" />
     </listeners>
     <!-- Define the test and the classes to run -->
-    <test name="Test1" parallel="methods">
+    <test name="Test1">
         <!-- Parallel execution within this test -->
         <classes>
-           <class name="com.tests.addProduct" />
+           <class name="com.tests.LoginTest" />
         </classes>
     </test>
 </suite>
