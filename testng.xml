@@ -6,10 +6,9 @@
         <listener class-name="com.report.ExtentReportListener" />
     </listeners>
     <!-- Define the test and the classes to run -->
-    <test name="Test1">
-        <!-- Parallel execution within this test -->
-        <classes>
-           <class name="com.tests.LoginTest" />
-        </classes>
-    </test>
+    <suite-files>
+        <suite-file path="testng_sanity.xml"></suite-file>
+        <suite-file path="testng_daily.xml"></suite-file>
+    </suite-files>
+
 </suite>

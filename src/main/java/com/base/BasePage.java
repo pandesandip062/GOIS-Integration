@@ -17,6 +17,7 @@ public class BasePage {
     protected BasePage(){
         iframeActions = new IframeActions();
         explicitWaitActions = new ExplicitWaitActions();
+        javaScriptActions =new JavaScriptActions();
     }
 
     public void click(WebElement element,String elementname){

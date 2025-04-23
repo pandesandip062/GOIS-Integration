@@ -34,14 +34,40 @@ public class ProductPage extends BasePage {
     @FindBy(id = "AddProduct")
     WebElement addProduct;
 
+    @FindBy(xpath = "(//a[text()='Import Products'])")
+    WebElement importProduct;
+
+    @FindBy(id = "btnContinue")
+    WebElement ContinueButton;
+
+    @FindBy(id = "ddlOrganization")
+    WebElement Organization;
     @FindBy(id = "ddlOrg")
     WebElement orgnizationSelect;
+
+    @FindBy(id = "btnFile")
+    WebElement selectFile;
 
     @FindBy(id = "btnSelect")
     WebElement selectButton;
 
     @FindBy(xpath = "//option[text()='Sandip_org']")
     WebElement sandipOrg;
+
+    @FindBy(id = "txtDescription")
+    WebElement Description;
+
+    @FindBy(id = "btnUpload")
+    WebElement UploadButton;
+
+    @FindBy(id = "divError")
+    WebElement importNote;
+
+    @FindBy(id = "btnStartImport")
+    WebElement StartImport;
+
+    @FindBy(id = "lblFailedRecords")
+    WebElement importResult;
 
     @FindBy(id = "txtProductName")
     WebElement productNameValue;
@@ -120,6 +146,30 @@ public class ProductPage extends BasePage {
         Assert.assertEquals(productNamevalues,productName);
         logger.info("verified that product save successfully");
 
+    }
+
+    public void addProductViaExcel() throws InterruptedException {
+        Actions select = new Actions(DriverFactory.getInstance().getDriver());
+        select.click(product).perform();
+        Thread.sleep(3000);
+        select.click(importProduct).perform();
+        logger.info("clicked on import product button");
+        super.click(ContinueButton,"continue button");
+        logger.info("clicked on continue button");
+        logger.info("selecting organization");
+        logger.info("selecting organization");
+        super.click(Organization,"organization");
+        super.javaScriptActions.scrollPageToViewElement(sandipOrg);
+        sandipOrg.click();
+        logger.info("selected sandiiOrg");
+        //super.click(selectFile,"select file");
+        super.sendKeys(selectFile,"selcting file","C:\\Users\\Admin\\Downloads\\Products (4).csv");
+        super.sendKeys(Description,"Description","adding products by excel");
+        super.click(UploadButton,"Upload button");
+        super.click(StartImport,"start import");
+        super.isElementVisible(importResult,"impot result");
+
+        System.out.println(importResult.getText());
 
 
     }

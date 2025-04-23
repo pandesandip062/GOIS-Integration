@@ -19,6 +19,8 @@ import org.openqa.selenium.WebElement;
 
 public class JavaScriptActions {
 
+
+
     private Logger logger = LogManager.getLogger(JavaScriptActions.class);
 
     public void click(WebElement element){
