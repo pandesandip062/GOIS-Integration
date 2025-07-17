@@ -119,7 +119,7 @@ public class productsScreen extends BasePage {
         super.sendKeys(productNameValue, "product Name", "Iphone X1");
         super.click(saveAndBack, "Save and back");
         String productNamevalues = getProductName.getText();
-        Assert.assertEquals("Iphone X1", productNamevalues);
+        Assert.assertEquals("Iphone X11", productNamevalues);
 
     }
 }

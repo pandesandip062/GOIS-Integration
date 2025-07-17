@@ -1,4 +1,4 @@
-package com.properties;
+package com.properties_api.properties;
 
 import com.constants.Constants;
 import com.report.ExtentFactory;
@@ -8,12 +8,15 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
 
-public class TestDataLoader {
+public class TestDataLoader_api {
 
     private static Properties prop;
 
-    private TestDataLoader() throws IOException {
-        String env = Constants.EXECUTION_ENV;
+    private TestDataLoader_api() throws IOException {
+        ConfigLoadeer_api.getInstance();
+        String env = Constants.EXECUTION_ENV_API;
+
+        System.out.println(env);
 
         String filePath;
 
@@ -23,6 +26,9 @@ public class TestDataLoader {
                 break;
             case "uat":
                 filePath = Constants.TEST_ENV_UAT_DATA_FILE;
+                break;
+            case "api_uat":
+                filePath = Constants.TEST_ENV_UAT_API_DATA_FILE;
                 break;
             default:
                 throw new IllegalArgumentException("Unknown environment: " + env);
@@ -35,11 +41,11 @@ public class TestDataLoader {
     }
 
     @Getter
-    private static TestDataLoader instance;
+    private static TestDataLoader_api instance;
 
     static {
         try {
-            instance = new TestDataLoader();
+            instance = new TestDataLoader_api();
         } catch (IOException e) {
             throw new RuntimeException("Failed to initialize TestDataLoader: " + e.getMessage(), e);
         }

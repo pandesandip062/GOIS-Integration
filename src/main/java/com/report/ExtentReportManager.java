@@ -16,7 +16,7 @@ public class ExtentReportManager {
         Date date = new Date();
         DateFormat format = new SimpleDateFormat("MM-dd-yy & HH-mm-ss");
         String newDate = format.format(date);
-        ExtentSparkReporter reporter = new ExtentSparkReporter(".//reports//execution"+newDate+".html");
+        ExtentSparkReporter reporter = new ExtentSparkReporter(".//reports//execution  w"+newDate+".html");
 
         ExtentReports extent = new ExtentReports();
         extent.attachReporter(reporter);

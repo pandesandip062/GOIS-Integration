@@ -27,5 +27,25 @@ public class salesOrderTest extends BaseTest {
 
         salesOrder sales = new salesOrder();
         sales.createSalesOrder();
+
+    }
+    @Test
+    public void editSalesOrder() throws InterruptedException {
+        DriverFactory.getInstance().getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        LoginPage loginPage = new LoginPage();
+        loginPage.loginApplication(TestDataLoader.getInstance().getUsername(), TestDataLoader.getInstance().getPassword());
+
+        salesOrder sales = new salesOrder();
+        sales.edit_Sales_Order();
+    }
+
+    @Test
+    public void delete_sales_order(){
+        DriverFactory.getInstance().getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        LoginPage loginPage = new LoginPage();
+        loginPage.loginApplication(TestDataLoader.getInstance().getUsername(), TestDataLoader.getInstance().getPassword());
+
+        salesOrder sales = new salesOrder();
+        sales.delete_Sales_Order();
     }
 }

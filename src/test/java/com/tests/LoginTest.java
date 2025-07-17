@@ -23,6 +23,8 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void loginWithValidateUserNameAndValidPassword(){
+
+
         LoginPage loginPage = new LoginPage();
         loginPage.loginApplication(TestDataLoader.getInstance().getUsername(), TestDataLoader.getInstance().getPassword());
         try {
