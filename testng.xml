@@ -8,7 +8,6 @@
     <!-- Define the test and the classes to run -->
     <suite-files>
         <suite-file path="testng_sanity.xml"></suite-file>
-        <suite-file path="testng_daily.xml"></suite-file>
     </suite-files>
 
 </suite>
