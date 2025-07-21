@@ -9,7 +9,7 @@
     <test name="Test1" parallel="methods">
         <!-- Parallel execution within this test -->
         <classes>
-          
+           <class name="com.tests.LoginTest" />
         </classes>
     </test>
 </suite>
